@@ -161,6 +161,7 @@
 
         var recordVideo = document.getElementById('record-video');
         var preview = document.getElementById('preview');
+        preview.muted = true;  //fixes echo problems
 
         var container = document.getElementById('container');
 
@@ -170,6 +171,7 @@
 
         var recordAudio, recordVideo;
         record.onclick = function() {
+            preview.muted = true; //fixes echo problems
             record.disabled = true;
             navigator.getUserMedia({
                 audio: true,
@@ -234,6 +236,7 @@
             }
 
             deleteFiles.disabled = false;
+            preview.muted = false; //fixes echo problems
         };
 
         deleteFiles.onclick = function() {
